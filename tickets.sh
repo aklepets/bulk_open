@@ -5,10 +5,8 @@ xclip -o > tickets_list.txt
 filelines=`cat $filename`
 echo Start
 for line in $filelines ; do
-	if [[ $line =~ ^[0-9]+$ ]]
-	then
-		pathh=`cat path` 
-		xdg-open  "$pathh$line"
+	if [[ $line =~ ^[A-Z]{2,5}-[0-9]{,4}+$ ]];	then
+		xdg-open "https://corevist.atlassian.net/browse/$line"
 	fi
 done
 exit
